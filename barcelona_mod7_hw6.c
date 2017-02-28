@@ -11,7 +11,10 @@
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>
 /* Function Prototypes */
-
+void Usage(void);
+void GetRec(double* x, double* y);
+void Showit(double radius, double angle);
+int AskQuestion(void);
 /* Main Program */
 int main(int argc, char *argv[])
 {
