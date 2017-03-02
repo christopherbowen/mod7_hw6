@@ -10,6 +10,7 @@
  */
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>
+#include <math.h>
 /* Function Prototypes */
 void Usage(void);
 void GetRec(double* x, double* y);
@@ -19,6 +20,8 @@ int AskQuestion(void);
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	double x = atof(argv[1]);
+	double y = atof(argv[2]);
 	Usage();
 	return 0;
 }
@@ -33,12 +36,12 @@ void Usage(void)
 
 void GetRec(double* x, double* y)
 {
-
+	
 	return; 
 } 
 
 void Polar(double x, double y, double* theta)
 {
-
+	double r = sqrt((x*x)+(y*y)
 	return;
 }
