@@ -24,15 +24,29 @@ int AskQuestion(void);
 
 int main(int argc, char *argv[])
 {
-		double x = atof(argv[1]);
-		double y = atof(argv[2]);
-	Usage();
+	if(argc >2)
+	{
+		Usage();
+	}
+	double x = atof(argv[1]);
+	double y = atof(argv[2]);
+	double theta = 1; 
+	if(x < 0|| y < 0)
+	{
+		Usage();
+	}
+	else
+	{
+		Polar(double x, double y, );
+		Showit();
+		AskQuestion();
+	}
 
 	return 0;
 }
 
 /* FUNCTION DEFINITIONS */
-{
+
 	//this is the help function//
 	void Usage(void)
 	{
@@ -43,7 +57,7 @@ int main(int argc, char *argv[])
 	//this function accepts the input data//
 	void GetRec(double* x, double* y)
 	{
-
+		
 		return; 
 	} 
 	//this function performs the required calculations//
@@ -83,23 +97,25 @@ int main(int argc, char *argv[])
 		if (Response != 1 || Response != 0)
 		{
 			printf("Bad input, try again\n");
-			continue;
+		
 		}
 		else if (Response == 1)
 		{
-			printf("Enter the x coordinate: ");
-			scanf("%d" &x);
-			printf("Enter the y coordinate: ");
-			scanf("%d", &y);
+			double input_x, input_y;
+			printf("new x coordinate: ");
+			scanf("%lf", &input_x);
+			printf("new y coordinate: ");
+			scanf("%lf", &input_y);
+			GetRec(&input_x, &input_y);
 		}
 		else if (Response == 0)
 		{
-			break;
+		
 		}
 		return Response;
 
 	}
-}
+
 
 
 
