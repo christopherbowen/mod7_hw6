@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(void)
 {
+	printf("Usage: ./barcelona_mod7_hw6 x-coordinate y-coordinate\nboth params are required.\nmust be floating points");
 	return;
 }
 
