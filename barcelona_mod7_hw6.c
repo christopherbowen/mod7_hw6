@@ -12,12 +12,14 @@
 #include <stdlib.h>
 #include <math.h>
 /* Function Prototypes */
+
 void Usage(void);
 void GetRec(double* x, double* y);
 void Polar(double x, double y, double* theta);
 void Showit(double radius, double angle);
 int AskQuestion(void);
 /* Main Program */
+
 int main(int argc, char *argv[])
 {
 	double x = atof(argv[1]);
@@ -25,7 +27,6 @@ int main(int argc, char *argv[])
 	Usage();
 	return 0;
 }
-
 
 /* Function Defenitions */
 void Usage(void)
@@ -45,3 +46,17 @@ void Polar(double x, double y, double* theta)
 	double r = sqrt((x*x)+(y*y)
 	return;
 }
+
+void Showit(double radius, double angle);
+{
+
+return;
+}
+
+
+
+
+
+
+
+
