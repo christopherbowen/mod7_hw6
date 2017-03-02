@@ -13,16 +13,31 @@
 /* Function Prototypes */
 void Usage(void);
 void GetRec(double* x, double* y);
+void Polar(double x, double y, double* theta);
 void Showit(double radius, double angle);
 int AskQuestion(void);
 /* Main Program */
 int main(int argc, char *argv[])
 {
-
+	Usage();
 	return 0;
 }
 
 
 /* Function Defenitions */
+void Usage(void)
+{
+	return;
+}
 
+void GetRec(double* x, double* y)
+{
 
+	return; 
+} 
+
+void Polar(double x, double y, double* theta)
+{
+
+	return;
+}
