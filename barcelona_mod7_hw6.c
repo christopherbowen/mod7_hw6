@@ -40,10 +40,23 @@ int main(int argc, char *argv[])
 		exit(0);
 	}
 	
-		Polar(x, y, &r, &theta);// create a loop for response to ask question
-		Showit(radius, angle);
+	Polar(x, y, &r, &theta);// create a loop for response to ask question
+	Showit(radius, angle);
+	int question;
+	question = AskQuestion();
+	while(question ==1)
+	{
+		printf("please enter a x-coordinate: ");
+		scanf("%lf", &x);
+		printf("please enter a y-coordinate: ");
+		scanf("%lf", &y);
+		GetRec(&x, &y);
 		AskQuestion();
-
+		if(question ==0);
+		{
+			break;
+		}
+	}
 
 	return 0;
 }
@@ -54,19 +67,18 @@ int main(int argc, char *argv[])
 //this is the help function//
 void Usage(void)
 {
-	printf("Usage: ./barcelona_mod7_hw6 x-coordinate y-coordinate\nboth params are required.\nmust be floating points");
+	printf("Usage: ./barcelona_mod7_hw6 x-coordinate y-coordinate\nboth params are required.\nmust be floating points\n");
 	return;
 }
 
 //this function accepts the input data//
 void GetRec(double* x, double* y)
 {
-//printf scanf for x and y
-		printf("Enter x-coordinate: \n");
-		scanf("%p", &x);
-		printf("Enter y-coordinate: \n");
-		scanf("%p", &y);
-
+	double xcord, ycord;
+	xcord= *x;
+	ycord= *y;
+	Polar(xcord, ycord, &r, &theta);
+	Showit(radius, angle);
 	return; 
 } 
 //this function performs the required calculations//
@@ -74,9 +86,11 @@ void GetRec(double* x, double* y)
 //theta is the angle from the x-axis
 void Polar(double x, double y, double* r, double* theta)
 {
-
+	//have to convert theta from radians to degree
+	double dummy;
 	*r = sqrt((pow(x,2)) + ((pow(y,2))));
-	*theta = atan (y/x);
+	dummy = atan(y/x);
+	*theta = dummy * 57.2958;
 
 	return;
 }
@@ -99,11 +113,6 @@ int AskQuestion(void)
 	printf("Y = 1, N = 0: \n");
 	scanf("%d", &Response);
 
-	if (Response != 1 || Response != 0)
-	{
-		printf("Bad input, try again\n");
-
-	}
 	return Response;
 
 }
