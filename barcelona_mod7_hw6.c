@@ -16,109 +16,94 @@
 
 void Usage(void);
 void GetRec(double* x, double* y);
-void Polar(double x, double y, double* theta);
+void Polar(double x, double y, double *r, double *theta);
 void Showit(double radius, double angle);
 int AskQuestion(void);
+
+double r, theta, radius, angle;
 
 /* Main Program */
 
 int main(int argc, char *argv[])
 {
-	if(argc >2)
+	if(argc > 3 || argc < 1) //check for 2 and only 2 parameters//
 	{
-		Usage();
+		Usage(); //exit
+		exit(0);
 	}
 	double x = atof(argv[1]);
 	double y = atof(argv[2]);
-	double theta = 1; 
-	if(x < 0|| y < 0)
+
+	if(x == 0.0 || y == 0.0)// if x = 0.0 or y = 0.0
 	{
-		Usage();
+		Usage(); //exit
+		exit(0);
 	}
-	else
-	{
-		Polar(double x, double y, );
-		Showit();
+	
+		Polar(x, y, &r, &theta);// create a loop for response to ask question
+		Showit(radius, angle);
 		AskQuestion();
-	}
+
 
 	return 0;
 }
 
 /* FUNCTION DEFINITIONS */
 
-	//this is the help function//
-	void Usage(void)
+
+//this is the help function//
+void Usage(void)
+{
+	printf("Usage: ./barcelona_mod7_hw6 x-coordinate y-coordinate\nboth params are required.\nmust be floating points");
+	return;
+}
+
+//this function accepts the input data//
+void GetRec(double* x, double* y)
+{
+//printf scanf for x and y
+		printf("Enter x-coordinate: \n");
+		scanf("%p", &x);
+		printf("Enter y-coordinate: \n");
+		scanf("%p", &y);
+
+	return; 
+} 
+//this function performs the required calculations//
+//r is distance from origin
+//theta is the angle from the x-axis
+void Polar(double x, double y, double* r, double* theta)
+{
+
+	*r = sqrt((pow(x,2)) + ((pow(y,2))));
+	*theta = atan (y/x);
+
+	return;
+}
+
+//this function displays the values of the two input parameters//
+void Showit(double radius, double angle)
+{ 
+	printf("The polar cordinates are:\n");
+	printf("The Distance from origin is %lf\n", r); 
+	printf("Angle(in degrees) from x-axis is %lf\n", theta);
+
+	return;
+}
+
+//this function asks if the user would want to perform another calculation//
+int AskQuestion(void)
+{
+	int Response;
+	printf("Do you want to calculate again(Y/N)?\n");
+	printf("Y = 1, N = 0: \n");
+	scanf("%d", &Response);
+
+	if (Response != 1 || Response != 0)
 	{
-		printf("Usage: ./barcelona_mod7_hw6 x-coordinate y-coordinate\nboth params are required.\nmust be floating points");
-		return;
-	}
-
-	//this function accepts the input data//
-	void GetRec(double* x, double* y)
-	{
-		
-		return; 
-	} 
-	//this function performs the required calculations//
-	//r is distance from origin
-	//theta is the angle from the x-axis
-	void Polar(double x, double y, double* r, double* theta)
-	{
-
-		double x = atof(argv[1]);
-		double y = atof(argv[2]);
-
-		double r = sqrt((pow(x,2)) + ((pow(y,2))));
-		double theta = atan(y/x);
-
-
-		return (*r, *theta);
-	}
-
-	//this function displays the values of the two input parameters//
-	void Showit(double radius, double angle)
-	{ 
-		printf("The polar cordinates are: \n");
-		printf("The Distance from origin is %lf\n", r); 
-		printf("Angle(in degrees) from x-axis is %lf\n", theta);
-
-		return;
-	}
-
-	//this function asks if the user would want to perform another calculation//
-	int AskQuestion(void)
-	{
-		int Response;
-		printf("Do you want to calculate again(Y/N)?\n");
-		printf("Y = 1, N = 0: \n");
-		scanf("%d" &Response);
-
-		if (Response != 1 || Response != 0)
-		{
-			printf("Bad input, try again\n");
-		
-		}
-		else if (Response == 1)
-		{
-			double input_x, input_y;
-			printf("new x coordinate: ");
-			scanf("%lf", &input_x);
-			printf("new y coordinate: ");
-			scanf("%lf", &input_y);
-			GetRec(&input_x, &input_y);
-		}
-		else if (Response == 0)
-		{
-		
-		}
-		return Response;
+		printf("Bad input, try again\n");
 
 	}
+	return Response;
 
-
-
-
-
-
-
+}
