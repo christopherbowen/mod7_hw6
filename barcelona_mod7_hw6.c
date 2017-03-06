@@ -20,7 +20,7 @@ void Polar(double x, double y, double *r, double *theta);
 void Showit(double radius, double angle);
 int AskQuestion(void);
 
-double r, theta, radius, angle;
+double r, theta, radius, angle, Response;
 
 /* Main Program */
 
@@ -44,7 +44,8 @@ int main(int argc, char *argv[])
 	Showit(radius, angle);
 	int question;
 	question = AskQuestion();
-	while(question ==1)
+
+	while(question == 1)
 	{
 		printf("please enter a x-coordinate: ");
 		scanf("%lf", &x);
@@ -52,7 +53,13 @@ int main(int argc, char *argv[])
 		scanf("%lf", &y);
 		GetRec(&x, &y);
 		AskQuestion();
-		if(question ==0);
+
+		if (question != 1 || question != 0)
+		{
+			printf("Bad input, please try again\n");
+		}
+		
+		else if(question == 0);
 		{
 			break;
 		}
