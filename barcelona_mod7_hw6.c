@@ -39,13 +39,13 @@ int main(int argc, char *argv[])
 		Usage(); //exit
 		exit(0);
 	}
-	
+
 	Polar(x, y, &r, &theta);// create a loop for response to ask question
 	Showit(radius, angle);
 	int question;
 	question = AskQuestion();
 
-	while(question == 1)
+	if (question == 1)
 	{
 		printf("please enter a x-coordinate: ");
 		scanf("%lf", &x);
@@ -53,13 +53,16 @@ int main(int argc, char *argv[])
 		scanf("%lf", &y);
 		GetRec(&x, &y);
 		AskQuestion();
-
-		if (question != 1 || question != 0)
+	}
+	while (question != 1 || question != 0)
+	{
+		if(question != 1 || question != 0)
 		{
 			printf("Bad input, please try again\n");
+			question = AskQuestion();
 		}
-		
-		else if(question == 0);
+
+		else  if(question == 0);
 		{
 			break;
 		}
